@@ -121,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Rest framework paginating
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}
