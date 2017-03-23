@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'rest_framework',
     'snippets.apps.SnippetsConfig',
     'django.contrib.admin',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +129,18 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
+
+# CORS
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    '127.0.0.1:8080'
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
