@@ -22,19 +22,19 @@ class SnippetViewSet(viewsets.ModelViewSet):
     """
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly)
+    """permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly)"""
 
     @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request, *args, **kwargs):
         snippet = self.get_object()
         return Response(snippet.highlighted)
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    """def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)"""
 
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides list and detail actions
     """
